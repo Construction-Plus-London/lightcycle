@@ -1,7 +1,9 @@
 package com.soundcloud.lightcycle;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
 
@@ -27,6 +29,12 @@ public abstract class LightCycleActionBarActivity<ActivityType extends LightCycl
         setActivityContentView();
         LightCycles.bind(this);
         lightCycleDispatcher.onCreate(activity(), savedInstanceState);
+    }
+
+    @Override
+    protected void onPostCreate(@Nullable Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        lightCycleDispatcher.onPostCreate(activity(), savedInstanceState);
     }
 
     protected abstract void setActivityContentView();
@@ -79,9 +87,33 @@ public abstract class LightCycleActionBarActivity<ActivityType extends LightCycl
     }
 
     @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        lightCycleDispatcher.onWindowFocusChanged(activity(), hasFocus);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        lightCycleDispatcher.onActivityResult(activity(), requestCode, resultCode, data);
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        lightCycleDispatcher.onConfigurationChanged(activity(), newConfig);
+    }
+
+    @Override
     protected void onDestroy() {
         lightCycleDispatcher.onDestroy(activity());
         super.onDestroy();
+    }
+
+    @Override
+    public void onBackPressed() {
+        lightCycleDispatcher.onBackPressed(activity());
+        super.onBackPressed();
     }
 
     @SuppressWarnings("unchecked")

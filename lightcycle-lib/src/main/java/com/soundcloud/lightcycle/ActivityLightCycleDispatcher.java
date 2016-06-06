@@ -2,6 +2,7 @@ package com.soundcloud.lightcycle;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.MenuItem;
@@ -27,6 +28,13 @@ public class ActivityLightCycleDispatcher<T extends Activity>
     public void onCreate(T activity, @Nullable Bundle bundle) {
         for (ActivityLightCycle<T> component : activityLightCycles) {
             component.onCreate(activity, bundle);
+        }
+    }
+
+    @Override
+    public void onPostCreate(T activity, Bundle bundle) {
+        for (ActivityLightCycle<T> component : activityLightCycles) {
+            component.onPostCreate(activity, bundle);
         }
     }
 
@@ -90,9 +98,37 @@ public class ActivityLightCycleDispatcher<T extends Activity>
     }
 
     @Override
+    public void onWindowFocusChanged(T activity, boolean hasFocus) {
+        for (ActivityLightCycle<T> component : activityLightCycles) {
+            component.onWindowFocusChanged(activity, hasFocus);
+        }
+    }
+
+    @Override
+    public void onActivityResult(T activity, int requestCode, int resultCode, Intent data) {
+        for (ActivityLightCycle<T> component : activityLightCycles) {
+            component.onActivityResult(activity, requestCode, resultCode, data);
+        }
+    }
+
+    @Override
+    public void onConfigurationChanged(T activity, Configuration newConfig) {
+        for (ActivityLightCycle<T> component : activityLightCycles) {
+            component.onConfigurationChanged(activity, newConfig);
+        }
+    }
+
+    @Override
     public void onDestroy(T activity) {
         for (ActivityLightCycle<T> component : activityLightCycles) {
             component.onDestroy(activity);
+        }
+    }
+
+    @Override
+    public void onBackPressed(T activity) {
+        for (ActivityLightCycle<T> component : activityLightCycles) {
+            component.onBackPressed(activity);
         }
     }
 }

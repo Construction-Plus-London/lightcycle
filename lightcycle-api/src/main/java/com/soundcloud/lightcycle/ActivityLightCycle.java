@@ -2,11 +2,13 @@ package com.soundcloud.lightcycle;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.MenuItem;
 
 public interface ActivityLightCycle<T extends Activity> {
     void onCreate(T activity, Bundle bundle);
+    void onPostCreate(T activity, Bundle bundle);
     void onNewIntent(T activity, Intent intent);
     void onStart(T activity);
     void onResume(T activity);
@@ -15,5 +17,9 @@ public interface ActivityLightCycle<T extends Activity> {
     void onStop(T activity);
     void onSaveInstanceState(T activity, Bundle bundle);
     void onRestoreInstanceState(T activity, Bundle bundle);
+    void onWindowFocusChanged(T activity, boolean hasFocus);
+    void onActivityResult(T activity, int requestCode, int resultCode, Intent data);
+    void onConfigurationChanged(T activity, Configuration newConfig);
     void onDestroy(T activity);
+    void onBackPressed(T activity);
 }
