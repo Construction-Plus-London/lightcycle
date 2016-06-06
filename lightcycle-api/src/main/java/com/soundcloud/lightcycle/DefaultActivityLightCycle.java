@@ -1,12 +1,16 @@
 package com.soundcloud.lightcycle;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.MenuItem;
 
 public class DefaultActivityLightCycle<HostType> implements ActivityLightCycle<HostType> {
     @Override
     public void onCreate(HostType host, Bundle bundle) { /* no-op */ }
+
+    @Override
+    public void onPostCreate(HostType host, Bundle bundle) { /* no-op */ }
 
     @Override
     public void onNewIntent(HostType host, Intent intent) { /* no-op */ }
@@ -35,5 +39,17 @@ public class DefaultActivityLightCycle<HostType> implements ActivityLightCycle<H
     public void onRestoreInstanceState(HostType host, Bundle bundle) { /* no-op */ }
 
     @Override
+    public void onWindowFocusChanged(HostType host, boolean hasFocus) { /* no-op */ }
+
+    @Override
+    public void onActivityResult(HostType host, int requestCode, int resultCode, Intent data) { /* no-op */ }
+
+    @Override
+    public void onConfigurationChanged(HostType host, Configuration newConfig) { /* no-op */ }
+
+    @Override
     public void onDestroy(HostType host) { /* no-op */ }
+
+    @Override
+    public void onBackPressed(HostType host) { /* no-op */ }
 }
