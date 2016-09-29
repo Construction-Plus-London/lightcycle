@@ -134,5 +134,4 @@ public class ActivityLightCycleDispatcher<HostType>
             component.onBackPressed(host);
         }
     }
-    
 }
