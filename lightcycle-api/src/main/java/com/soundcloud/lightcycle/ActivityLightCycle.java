@@ -32,6 +32,8 @@ public interface ActivityLightCycle<T> {
 
     void onConfigurationChanged(T host, Configuration newConfig);
 
+    void onMultiWindowModeChanged(T host, boolean isInMultiWindowMode);
+
     void onDestroy(T host);
 
     void onBackPressed(T host);

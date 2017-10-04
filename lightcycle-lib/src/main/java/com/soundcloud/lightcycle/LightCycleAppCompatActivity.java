@@ -107,6 +107,12 @@ public abstract class LightCycleAppCompatActivity<HostType>
     }
 
     @Override
+    public void onMultiWindowModeChanged(boolean isInMultiWindowMode) {
+        super.onMultiWindowModeChanged(isInMultiWindowMode);
+        lightCycleDispatcher.onMultiWindowModeChanged(activity(), isInMultiWindowMode);
+    }
+
+    @Override
     protected void onDestroy() {
         lightCycleDispatcher.onDestroy(activity());
         super.onDestroy();

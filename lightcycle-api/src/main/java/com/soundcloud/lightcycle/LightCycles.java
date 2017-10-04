@@ -141,7 +141,12 @@ public final class LightCycles {
                 lightCycle.onConfigurationChanged(activity, newConfig);
             }
 
-            @Override
+        @Override
+        public void onMultiWindowModeChanged(Target host, boolean isInMultiWindowMode) {
+            lightCycle.onMultiWindowModeChanged(host, isInMultiWindowMode);
+        }
+
+        @Override
         public void onDestroy(Target activity) {
             lightCycle.onDestroy(activity);
             }

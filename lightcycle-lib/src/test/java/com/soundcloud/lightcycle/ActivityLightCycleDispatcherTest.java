@@ -1,8 +1,10 @@
 package com.soundcloud.lightcycle;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
+import android.app.Activity;
+import android.content.Intent;
+import android.content.res.Configuration;
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -10,17 +12,18 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.content.res.Configuration;
-import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ActivityLightCycleDispatcherTest {
-    @Mock private ActivityLightCycle<Activity> lightCycleComponent1;
-    @Mock private ActivityLightCycle<Activity> lightCycleComponent2;
-    @Mock private FragmentActivity activity;
+    @Mock
+    private ActivityLightCycle<Activity> lightCycleComponent1;
+    @Mock
+    private ActivityLightCycle<Activity> lightCycleComponent2;
+    @Mock
+    private FragmentActivity activity;
     private ActivityLightCycleDispatcher<Activity> dispatcher;
 
     @Before
@@ -142,6 +145,14 @@ public class ActivityLightCycleDispatcherTest {
 
         verify(lightCycleComponent1).onConfigurationChanged(activity, configuration);
         verify(lightCycleComponent2).onConfigurationChanged(activity, configuration);
+    }
+
+    @Test
+    public void dispatchOnMultiWindowModeChanged() {
+        dispatcher.onMultiWindowModeChanged(activity, true);
+
+        verify(lightCycleComponent1).onMultiWindowModeChanged(activity, true);
+        verify(lightCycleComponent2).onMultiWindowModeChanged(activity, true);
     }
 
     @Test

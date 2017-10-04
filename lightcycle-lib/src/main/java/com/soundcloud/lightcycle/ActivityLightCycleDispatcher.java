@@ -120,7 +120,14 @@ public class ActivityLightCycleDispatcher<HostType>
             component.onConfigurationChanged(host, newConfig);
         }
     }
-    
+
+    @Override
+    public void onMultiWindowModeChanged(HostType host, boolean isInMultiWindowMode) {
+        for (ActivityLightCycle<HostType> component : activityLightCycles) {
+            component.onMultiWindowModeChanged(host, isInMultiWindowMode);
+        }
+    }
+
     @Override
     public void onDestroy(HostType host) {
         for (ActivityLightCycle<HostType> component : activityLightCycles) {

@@ -48,6 +48,9 @@ public class DefaultActivityLightCycle<HostType> implements ActivityLightCycle<H
     public void onConfigurationChanged(HostType host, Configuration newConfig) { /* no-op */ }
 
     @Override
+    public void onMultiWindowModeChanged(HostType host, boolean isInMultiWindowMode) { /* no-op */ }
+
+    @Override
     public void onDestroy(HostType host) { /* no-op */ }
 
     @Override
