@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'checkstyle'
 apply from: rootProject.file('gradle/gradle-mvn-push.gradle')
 
 android {
@@ -34,10 +35,16 @@ android {
   }
 }
 
+checkstyle {
+  configFile rootProject.file('checkstyle.xml')
+  showViolations true
+}
+
 dependencies {
   compile project(':lightcycle-api')
   provided deps.support_v4
   compile deps.appcompat_v7
+  compile deps.preference_v7
   compile deps.support_annotations
 
   testCompile deps.mockito
