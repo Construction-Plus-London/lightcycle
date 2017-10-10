@@ -2,7 +2,6 @@ package com.soundcloud.lightcycle;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -60,11 +59,6 @@ public final class LightCycles {
             }
 
             @Override
-            public void onPostCreate(Target activity, Bundle bundle) {
-                lightCycle.onPostCreate(activity, bundle);
-            }
-
-            @Override
             public void onNewIntent(Target activity, Intent intent) {
                 lightCycle.onNewIntent(activity, intent);
             }
@@ -105,28 +99,8 @@ public final class LightCycles {
             }
 
             @Override
-            public void onWindowFocusChanged(Target activity, boolean hasFocus) {
-                lightCycle.onWindowFocusChanged(activity, hasFocus);
-            }
-
-            @Override
-            public void onActivityResult(Target activity, int requestCode, int resultCode, Intent data) {
-                lightCycle.onActivityResult(activity, requestCode, resultCode, data);
-            }
-
-            @Override
-            public void onConfigurationChanged(Target activity, Configuration newConfig) {
-                lightCycle.onConfigurationChanged(activity, newConfig);
-            }
-
-            @Override
             public void onDestroy(Target activity) {
                 lightCycle.onDestroy(activity);
-            }
-
-            @Override
-            public void onBackPressed(Target activity) {
-                lightCycle.onBackPressed(activity);
             }
         };
     }
