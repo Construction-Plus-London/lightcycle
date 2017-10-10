@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -81,6 +82,11 @@ public final class LightCycles {
         }
 
         @Override
+            public void onPostCreate(Target activity, Bundle bundle) {
+                lightCycle.onPostCreate(activity, bundle);
+            }
+
+            @Override
         public void onNewIntent(Target activity, Intent intent) {
             lightCycle.onNewIntent(activity, intent);
         }
@@ -121,8 +127,33 @@ public final class LightCycles {
         }
 
         @Override
+            public void onWindowFocusChanged(Target activity, boolean hasFocus) {
+                lightCycle.onWindowFocusChanged(activity, hasFocus);
+            }
+
+            @Override
+            public void onActivityResult(Target activity, int requestCode, int resultCode, Intent data) {
+                lightCycle.onActivityResult(activity, requestCode, resultCode, data);
+            }
+
+            @Override
+            public void onConfigurationChanged(Target activity, Configuration newConfig) {
+                lightCycle.onConfigurationChanged(activity, newConfig);
+            }
+
+        @Override
+        public void onMultiWindowModeChanged(Target host, boolean isInMultiWindowMode) {
+            lightCycle.onMultiWindowModeChanged(host, isInMultiWindowMode);
+        }
+
+        @Override
         public void onDestroy(Target activity) {
             lightCycle.onDestroy(activity);
+            }
+
+            @Override
+            public void onBackPressed(Target activity) {
+                lightCycle.onBackPressed(activity);
         }
 
         @Override
@@ -336,5 +367,100 @@ public final class LightCycles {
         public int hashCode() {
             return lightCycle != null ? lightCycle.hashCode() : 0;
         }
+    }
+
+    public static <Source extends android.support.v4.app.Fragment, Target extends Source> ShazamSupportFragmentLightCycle<Target> lift(final ShazamSupportFragmentLightCycle<Source> lightCycle) {
+        return new ShazamSupportFragmentLightCycle<Target>() {
+
+            @Override
+            public void onConfigurationChanged(Target fragment, Configuration newConfig) {
+                lightCycle.onConfigurationChanged(fragment, newConfig);
+            }
+
+            @Override
+            public void onActivityResult(Target fragment, int requestCode, int resultCode, Intent data) {
+                lightCycle.onActivityResult(fragment, requestCode, resultCode, data);
+            }
+
+            @Override
+            public void onSelected(Target fragment) {
+                lightCycle.onSelected(fragment);
+            }
+
+            @Override
+            public void onUnselected(Target fragment) {
+                lightCycle.onUnselected(fragment);
+            }
+
+            @Override
+            public void onWindowFocusChanged(Target fragment, boolean hasFocus) {
+                lightCycle.onWindowFocusChanged(fragment, hasFocus);
+            }
+
+            @Override
+            public void onAttach(Target fragment, Activity activity) {
+                lightCycle.onAttach(fragment, activity);
+            }
+
+            @Override
+            public void onCreate(Target fragment, Bundle bundle) {
+                lightCycle.onCreate(fragment, bundle);
+            }
+
+            @Override
+            public void onViewCreated(Target fragment, View view, Bundle savedInstanceState) {
+                lightCycle.onViewCreated(fragment, view, savedInstanceState);
+            }
+
+            @Override
+            public void onActivityCreated(Target fragment, Bundle bundle) {
+                lightCycle.onActivityCreated(fragment, bundle);
+            }
+
+            @Override
+            public void onStart(Target fragment) {
+                lightCycle.onStart(fragment);
+            }
+
+            @Override
+            public void onResume(Target fragment) {
+                lightCycle.onResume(fragment);
+            }
+
+            @Override
+            public boolean onOptionsItemSelected(Target fragment, MenuItem item) {
+                return lightCycle.onOptionsItemSelected(fragment, item);
+            }
+
+            @Override
+            public void onPause(Target fragment) {
+                lightCycle.onPause(fragment);
+            }
+
+            @Override
+            public void onStop(Target fragment) {
+                lightCycle.onStop(fragment);
+            }
+
+            @Override
+            public void onSaveInstanceState(Target fragment, Bundle bundle) {
+                lightCycle.onSaveInstanceState(fragment, bundle);
+            }
+
+            @Override
+            public void onDestroyView(Target fragment) {
+                lightCycle.onDestroyView(fragment);
+            }
+
+            @Override
+            public void onDestroy(Target fragment) {
+                lightCycle.onDestroy(fragment);
+            }
+
+            @Override
+            public void onDetach(Target fragment) {
+                lightCycle.onDetach(fragment);
+            }
+        };
     }
 }

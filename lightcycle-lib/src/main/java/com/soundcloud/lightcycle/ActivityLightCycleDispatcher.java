@@ -3,6 +3,7 @@ package com.soundcloud.lightcycle;
 import com.soundcloud.lightcycle.util.Preconditions;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.MenuItem;
@@ -30,6 +31,13 @@ public class ActivityLightCycleDispatcher<HostType>
         LightCycles.bind(this);
         for (ActivityLightCycle<HostType> component : activityLightCycles) {
             component.onCreate(host, bundle);
+        }
+    }
+
+    @Override
+    public void onPostCreate(HostType host, Bundle bundle) {
+        for (ActivityLightCycle<HostType> component : activityLightCycles) {
+            component.onPostCreate(host, bundle);
         }
     }
 
@@ -93,9 +101,44 @@ public class ActivityLightCycleDispatcher<HostType>
     }
 
     @Override
+    public void onWindowFocusChanged(HostType host, boolean hasFocus) {
+        for (ActivityLightCycle<HostType> component : activityLightCycles) {
+            component.onWindowFocusChanged(host, hasFocus);
+        }
+    }
+
+    @Override
+    public void onActivityResult(HostType host, int requestCode, int resultCode, Intent data) {
+        for (ActivityLightCycle<HostType> component : activityLightCycles) {
+            component.onActivityResult(host, requestCode, resultCode, data);
+        }
+    }
+
+    @Override
+    public void onConfigurationChanged(HostType host, Configuration newConfig) {
+        for (ActivityLightCycle<HostType> component : activityLightCycles) {
+            component.onConfigurationChanged(host, newConfig);
+        }
+    }
+
+    @Override
+    public void onMultiWindowModeChanged(HostType host, boolean isInMultiWindowMode) {
+        for (ActivityLightCycle<HostType> component : activityLightCycles) {
+            component.onMultiWindowModeChanged(host, isInMultiWindowMode);
+        }
+    }
+
+    @Override
     public void onDestroy(HostType host) {
         for (ActivityLightCycle<HostType> component : activityLightCycles) {
             component.onDestroy(host);
+        }
+    }
+
+    @Override
+    public void onBackPressed(HostType host) {
+        for (ActivityLightCycle<HostType> component : activityLightCycles) {
+            component.onBackPressed(host);
         }
     }
 }
