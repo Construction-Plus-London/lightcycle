@@ -8,6 +8,7 @@ import com.squareup.javapoet.TypeSpec;
 
 import java.io.IOException;
 import java.io.Writer;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -170,11 +171,36 @@ public class LightCycleProcessor extends AbstractProcessor {
         }
 
         final TypeElement typeElement = (TypeElement) ((DeclaredType) type).asElement();
-        if (erasedTargetNames.contains(typeElement.toString())) {
-            final String parentWithLightCycle = elementUtils.getBinaryName(typeElement).toString();
-            return LightCycleBinder.forParent(binderName(parentWithLightCycle));
+        final String parentClassName = elementUtils.getBinaryName(typeElement).toString();
+        if (erasedTargetNames.contains(typeElement.toString())
+                || userClassWithLightCycles(parentClassName)) {
+            return LightCycleBinder.forParent(binderName(parentClassName));
         }
         return findParent(erasedTargetNames, typeElement.getSuperclass());
+    }
+
+    private boolean userClassWithLightCycles(String className) {
+        try {
+            Class<?> cls = Class.forName(className);
+            return hasLightCycleFields(cls);
+        } catch (ClassNotFoundException e) {
+            return false;
+        }
+    }
+
+    private boolean hasLightCycleFields(Class<?> cls) {
+        for (Field field : cls.getDeclaredFields()) {
+            if (isPlainLightCycle(field)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static boolean isPlainLightCycle(Field field) {
+        return (ActivityLightCycle.class.isAssignableFrom(field.getType())
+                || FragmentLightCycle.class.isAssignableFrom(field.getType()))
+                && !LightCycleDispatcher.class.isAssignableFrom(field.getType());
     }
 
     private void verifyFieldsAccessible(Set<? extends Element> elements) {
