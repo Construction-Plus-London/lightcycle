@@ -4,9 +4,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
 import android.view.MenuItem;
 import android.view.View;
+
+import androidx.fragment.app.DialogFragment;
 
 public abstract class ShazamLightCycleSupportDialogFragment extends DialogFragment
         implements LightCycleDispatcher<ShazamSupportFragmentLightCycle<DialogFragment>>, OnFragmentSelectedListener {

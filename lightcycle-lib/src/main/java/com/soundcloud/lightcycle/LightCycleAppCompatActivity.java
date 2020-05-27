@@ -1,13 +1,14 @@
 package com.soundcloud.lightcycle;
 
-import com.soundcloud.lightcycle.util.Preconditions;
-
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import android.support.annotation.Nullable;
 import android.view.MenuItem;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.soundcloud.lightcycle.util.Preconditions;
 
 public abstract class LightCycleAppCompatActivity<HostType>
         extends AppCompatActivity

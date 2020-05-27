@@ -4,69 +4,68 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.MenuItem;
 import android.view.View;
 
-public class DefaultShazamSupportFragmentLifeCycle<T extends Fragment>
-        implements ShazamSupportFragmentLightCycle<T> {
+public class DefaultShazamSupportFragmentLifeCycle<HostType>
+        implements ShazamSupportFragmentLightCycle<HostType> {
 
     @Override
-    public void onConfigurationChanged(T fragment, Configuration newConfig) { /* no-op */ }
+    public void onConfigurationChanged(HostType fragment, Configuration newConfig) { /* no-op */ }
 
     @Override
-    public void onActivityResult(T fragment, int requestCode, int resultCode, Intent data) { /* no-op */ }
+    public void onActivityResult(HostType fragment, int requestCode, int resultCode, Intent data) { /* no-op */ }
 
     @Override
-    public void onSelected(T fragment) { /* no-op */ }
+    public void onSelected(HostType fragment) { /* no-op */ }
 
     @Override
-    public void onUnselected(T fragment) { /* no-op */ }
+    public void onUnselected(HostType fragment) { /* no-op */ }
 
     @Override
-    public void onWindowFocusChanged(T fragment, boolean hasFocus) { /* no-op */ }
+    public void onWindowFocusChanged(HostType fragment, boolean hasFocus) { /* no-op */ }
 
     //
     // From SupportFragmentLightCycle
     //
     @Override
-    public void onAttach(T fragment, Activity activity) { /* no-op */ }
+    public void onAttach(HostType fragment, Activity activity) { /* no-op */ }
 
     @Override
-    public void onCreate(T fragment, Bundle bundle) { /* no-op */ }
+    public void onCreate(HostType fragment, Bundle bundle) { /* no-op */ }
 
     @Override
-    public void onViewCreated(T fragment, View view, Bundle savedInstanceState) { /* no-op */ }
+    public void onViewCreated(HostType fragment, View view, Bundle savedInstanceState) { /* no-op */ }
 
     @Override
-    public void onActivityCreated(T fragment, Bundle bundle) { /* no-op */ }
+    public void onActivityCreated(HostType fragment, Bundle bundle) { /* no-op */ }
 
     @Override
-    public void onStart(T fragment) { /* no-op */ }
+    public void onStart(HostType fragment) { /* no-op */ }
 
     @Override
-    public void onResume(T fragment) { /* no-op */ }
+    public void onResume(HostType fragment) { /* no-op */ }
 
     @Override
-    public boolean onOptionsItemSelected(T fragment, MenuItem item) {
+    public boolean onOptionsItemSelected(HostType fragment, MenuItem item) {
         return false;
     }
 
     @Override
-    public void onPause(T fragment) { /* no-op */ }
+    public void onPause(HostType fragment) { /* no-op */ }
 
     @Override
-    public void onStop(T fragment) { /* no-op */ }
+    public void onStop(HostType fragment) { /* no-op */ }
 
     @Override
-    public void onSaveInstanceState(T fragment, Bundle bundle) { /* no-op */ }
+    public void onSaveInstanceState(HostType fragment, Bundle bundle) { /* no-op */ }
 
     @Override
-    public void onDestroyView(T fragment) { /* no-op */ }
+    public void onDestroyView(HostType fragment) { /* no-op */ }
 
     @Override
-    public void onDestroy(T fragment) { /* no-op */ }
+    public void onDestroy(HostType fragment) { /* no-op */ }
 
     @Override
-    public void onDetach(T fragment) { /* no-op */ }
+    public void onDetach(HostType fragment) { /* no-op */ }
 }

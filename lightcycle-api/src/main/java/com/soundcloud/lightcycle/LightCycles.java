@@ -4,8 +4,8 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -93,11 +93,11 @@ public final class LightCycles {
         }
 
         @Override
-            public void onPostCreate(Target activity, Bundle bundle) {
-                lightCycle.onPostCreate(activity, bundle);
-            }
+        public void onPostCreate(Target activity, Bundle bundle) {
+            lightCycle.onPostCreate(activity, bundle);
+        }
 
-            @Override
+        @Override
         public void onNewIntent(Target activity, Intent intent) {
             lightCycle.onNewIntent(activity, intent);
         }
@@ -138,19 +138,19 @@ public final class LightCycles {
         }
 
         @Override
-            public void onWindowFocusChanged(Target activity, boolean hasFocus) {
-                lightCycle.onWindowFocusChanged(activity, hasFocus);
-            }
+        public void onWindowFocusChanged(Target activity, boolean hasFocus) {
+            lightCycle.onWindowFocusChanged(activity, hasFocus);
+        }
 
-            @Override
-            public void onActivityResult(Target activity, int requestCode, int resultCode, Intent data) {
-                lightCycle.onActivityResult(activity, requestCode, resultCode, data);
-            }
+        @Override
+        public void onActivityResult(Target activity, int requestCode, int resultCode, Intent data) {
+            lightCycle.onActivityResult(activity, requestCode, resultCode, data);
+        }
 
-            @Override
-            public void onConfigurationChanged(Target activity, Configuration newConfig) {
-                lightCycle.onConfigurationChanged(activity, newConfig);
-            }
+        @Override
+        public void onConfigurationChanged(Target activity, Configuration newConfig) {
+            lightCycle.onConfigurationChanged(activity, newConfig);
+        }
 
         @Override
         public void onMultiWindowModeChanged(Target host, boolean isInMultiWindowMode) {
@@ -160,11 +160,11 @@ public final class LightCycles {
         @Override
         public void onDestroy(Target activity) {
             lightCycle.onDestroy(activity);
-            }
+        }
 
-            @Override
-            public void onBackPressed(Target activity) {
-                lightCycle.onBackPressed(activity);
+        @Override
+        public void onBackPressed(Target activity) {
+            lightCycle.onBackPressed(activity);
         }
 
         @Override
@@ -380,7 +380,7 @@ public final class LightCycles {
         }
     }
 
-    public static <Source extends android.support.v4.app.Fragment, Target extends Source> ShazamSupportFragmentLightCycle<Target> lift(final ShazamSupportFragmentLightCycle<Source> lightCycle) {
+    public static <Source, Target extends Source> ShazamSupportFragmentLightCycle<Target> lift(final ShazamSupportFragmentLightCycle<Source> lightCycle) {
         return new ShazamSupportFragmentLightCycle<Target>() {
 
             @Override
