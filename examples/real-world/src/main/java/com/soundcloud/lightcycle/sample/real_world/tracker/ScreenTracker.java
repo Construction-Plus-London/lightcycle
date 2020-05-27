@@ -2,6 +2,8 @@ package com.soundcloud.lightcycle.sample.real_world.tracker;
 
 import com.soundcloud.lightcycle.DefaultActivityLightCycle;
 
+import org.jetbrains.annotations.NotNull;
+
 import javax.inject.Inject;
 
 public class ScreenTracker extends DefaultActivityLightCycle<Screen> {
@@ -14,7 +16,7 @@ public class ScreenTracker extends DefaultActivityLightCycle<Screen> {
     }
 
     @Override
-    public void onResume(Screen screen) {
+    public void onResume(@NotNull Screen screen) {
         operations.trackScreen(screen);
     }
 }

@@ -32,6 +32,7 @@ ext.deps = [
   preference            : "androidx.preference:preference:1.1.0",
   appcompat             : "androidx.appcompat:appcompat:1.1.0",
   annotations           : "androidx.annotation:annotation:1.1.0",
+  jetbrainsAnnotations  : "org.jetbrains:annotations:13.0",
 
   // Processor
   javapoet              : 'com.squareup:javapoet:1.6.1',

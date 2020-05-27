@@ -7,28 +7,30 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 
-public interface ShazamSupportFragmentLightCycle<HostType> {
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-    void onConfigurationChanged(HostType fragment, Configuration newConfig);
-    void onActivityResult(HostType fragment, int requestCode, int resultCode, Intent data);
-    void onSelected(HostType fragment);
-    void onUnselected(HostType fragment);
-    void onWindowFocusChanged(HostType fragment, boolean hasFocus);
+public interface ShazamSupportFragmentLightCycle<HostType> {
+    void onConfigurationChanged(@NotNull HostType fragment, @NotNull Configuration newConfig);
+    void onActivityResult(@NotNull HostType fragment, int requestCode, int resultCode, @Nullable Intent data);
+    void onSelected(@NotNull HostType fragment);
+    void onUnselected(@NotNull HostType fragment);
+    void onWindowFocusChanged(@NotNull HostType fragment, boolean hasFocus);
 
     //
     // From SupportFragmentLightCycle
     //
-    void onAttach(HostType fragment, Activity activity);
-    void onCreate(HostType fragment, Bundle bundle);
-    void onViewCreated(HostType fragment, View view, Bundle savedInstanceState);
-    void onActivityCreated(HostType fragment, Bundle bundle);
-    void onStart(HostType fragment);
-    void onResume(HostType fragment);
-    boolean onOptionsItemSelected(HostType fragment, MenuItem item);
-    void onPause(HostType fragment);
-    void onStop(HostType fragment);
-    void onSaveInstanceState(HostType fragment, Bundle bundle);
-    void onDestroyView(HostType fragment);
-    void onDestroy(HostType fragment);
-    void onDetach(HostType fragment);
+    void onAttach(@NotNull HostType host, @NotNull Activity activity);
+    void onCreate(@NotNull HostType host, @Nullable Bundle bundle);
+    void onViewCreated(@NotNull HostType host, @NotNull View view, @Nullable Bundle savedInstanceState);
+    void onActivityCreated(@NotNull HostType host, @Nullable Bundle bundle);
+    void onStart(@NotNull HostType host);
+    void onResume(@NotNull HostType host);
+    boolean onOptionsItemSelected(@NotNull HostType host, @NotNull MenuItem item);
+    void onPause(@NotNull HostType host);
+    void onStop(@NotNull HostType host);
+    void onSaveInstanceState(@NotNull HostType host, @NotNull Bundle bundle);
+    void onDestroyView(@NotNull HostType host);
+    void onDestroy(@NotNull HostType host);
+    void onDetach(@NotNull HostType host);
 }

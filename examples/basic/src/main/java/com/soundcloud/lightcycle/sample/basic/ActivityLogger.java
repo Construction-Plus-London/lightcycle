@@ -7,37 +7,40 @@ import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 class ActivityLogger extends DefaultActivityLightCycle<AppCompatActivity> {
 
     private static final String TAG = "ACTIVITY_LOG";
 
     @Override
-    public void onCreate(AppCompatActivity activity, Bundle bundle) {
+    public void onCreate(@NotNull AppCompatActivity activity, @Nullable Bundle bundle) {
         Log.i(TAG, "Creating activity:" + activity);
     }
 
     @Override
-    public void onStart(AppCompatActivity activity) {
+    public void onStart(@NotNull AppCompatActivity activity) {
         Log.i(TAG, "Starting activity:" + activity);
     }
 
     @Override
-    public void onResume(AppCompatActivity activity) {
+    public void onResume(@NotNull AppCompatActivity activity) {
         Log.i(TAG, "Resuming activity:" + activity);
     }
 
     @Override
-    public void onPause(AppCompatActivity activity) {
+    public void onPause(@NotNull AppCompatActivity activity) {
         Log.i(TAG, "Pausing activity:" + activity);
     }
 
     @Override
-    public void onStop(AppCompatActivity activity) {
+    public void onStop(@NotNull AppCompatActivity activity) {
         Log.i(TAG, "Stopping activity:" + activity);
     }
 
     @Override
-    public void onDestroy(AppCompatActivity activity) {
+    public void onDestroy(@NotNull AppCompatActivity activity) {
         Log.i(TAG, "Destroying activity:" + activity);
     }
 }

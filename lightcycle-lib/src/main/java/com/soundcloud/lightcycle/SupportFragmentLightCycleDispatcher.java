@@ -8,7 +8,8 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 
-import androidx.annotation.Nullable;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -31,7 +32,7 @@ public class SupportFragmentLightCycleDispatcher<HostType>
     }
 
     @Override
-    public void onAttach(HostType host, Activity activity) {
+    public void onAttach(@NotNull HostType host, @NotNull Activity activity) {
         binderHelper.bindIfNecessary();
         for (SupportFragmentLightCycle<HostType> component : fragmentLightCycles) {
             component.onAttach(host, activity);
@@ -39,42 +40,42 @@ public class SupportFragmentLightCycleDispatcher<HostType>
     }
 
     @Override
-    public void onCreate(HostType host, @Nullable Bundle bundle) {
+    public void onCreate(@NotNull HostType host, @Nullable Bundle bundle) {
         for (SupportFragmentLightCycle<HostType> component : fragmentLightCycles) {
             component.onCreate(host, bundle);
         }
     }
 
     @Override
-    public void onViewCreated(HostType host, View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NotNull HostType host, @NotNull View view, @Nullable Bundle savedInstanceState) {
         for (SupportFragmentLightCycle<HostType> component : fragmentLightCycles) {
             component.onViewCreated(host, view, savedInstanceState);
         }
     }
 
     @Override
-    public void onActivityCreated(HostType host, Bundle bundle) {
+    public void onActivityCreated(@NotNull HostType host, @Nullable Bundle bundle) {
         for (SupportFragmentLightCycle<HostType> component : fragmentLightCycles) {
             component.onActivityCreated(host, bundle);
         }
     }
 
     @Override
-    public void onStart(HostType host) {
+    public void onStart(@NotNull HostType host) {
         for (SupportFragmentLightCycle<HostType> component : fragmentLightCycles) {
             component.onStart(host);
         }
     }
 
     @Override
-    public void onResume(HostType host) {
+    public void onResume(@NotNull HostType host) {
         for (SupportFragmentLightCycle<HostType> component : fragmentLightCycles) {
             component.onResume(host);
         }
     }
 
     @Override
-    public boolean onOptionsItemSelected(HostType host, MenuItem item) {
+    public boolean onOptionsItemSelected(@NotNull HostType host, @NotNull MenuItem item) {
         for (SupportFragmentLightCycle<HostType> component : fragmentLightCycles) {
             if (component.onOptionsItemSelected(host, item)) {
                 return true;
@@ -84,42 +85,42 @@ public class SupportFragmentLightCycleDispatcher<HostType>
     }
 
     @Override
-    public void onPause(HostType host) {
+    public void onPause(@NotNull HostType host) {
         for (SupportFragmentLightCycle<HostType> component : fragmentLightCycles) {
             component.onPause(host);
         }
     }
 
     @Override
-    public void onStop(HostType host) {
+    public void onStop(@NotNull HostType host) {
         for (SupportFragmentLightCycle<HostType> component : fragmentLightCycles) {
             component.onStop(host);
         }
     }
 
     @Override
-    public void onSaveInstanceState(HostType host, Bundle bundle) {
+    public void onSaveInstanceState(@NotNull HostType host, @NotNull Bundle bundle) {
         for (SupportFragmentLightCycle<HostType> component : fragmentLightCycles) {
             component.onSaveInstanceState(host, bundle);
         }
     }
 
     @Override
-    public void onDestroyView(HostType host) {
+    public void onDestroyView(@NotNull HostType host) {
         for (SupportFragmentLightCycle<HostType> component : fragmentLightCycles) {
             component.onDestroyView(host);
         }
     }
 
     @Override
-    public void onDestroy(HostType host) {
+    public void onDestroy(@NotNull HostType host) {
         for (SupportFragmentLightCycle<HostType> component : fragmentLightCycles) {
             component.onDestroy(host);
         }
     }
 
     @Override
-    public void onDetach(HostType host) {
+    public void onDetach(@NotNull HostType host) {
         for (SupportFragmentLightCycle<HostType> component : fragmentLightCycles) {
             component.onDetach(host);
         }

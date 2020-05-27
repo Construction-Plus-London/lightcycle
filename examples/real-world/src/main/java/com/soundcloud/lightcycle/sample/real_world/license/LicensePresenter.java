@@ -5,6 +5,9 @@ import com.soundcloud.lightcycle.DefaultSupportFragmentLightCycle;
 import android.os.Bundle;
 import android.view.View;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 import javax.inject.Inject;
 
 class LicensePresenter extends DefaultSupportFragmentLightCycle<LicenseView> {
@@ -14,7 +17,7 @@ class LicensePresenter extends DefaultSupportFragmentLightCycle<LicenseView> {
     }
 
     @Override
-    public void onViewCreated(LicenseView licenseView, View view, Bundle savedInstanceState) {
+    public void onViewCreated(@NotNull LicenseView licenseView, @NotNull View view, @Nullable Bundle savedInstanceState) {
         licenseView.showLicense("Apache License 2.0");
     }
 }

@@ -6,6 +6,8 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 
+import org.jetbrains.annotations.NotNull;
+
 import javax.inject.Inject;
 
 class DescriptionPresenter extends DefaultActivityLightCycle<HomeView> {
@@ -15,7 +17,7 @@ class DescriptionPresenter extends DefaultActivityLightCycle<HomeView> {
     }
 
     @Override
-    public void onCreate(HomeView homeView, @Nullable Bundle bundle) {
+    public void onCreate(@NotNull HomeView homeView, @Nullable Bundle bundle) {
         homeView.showDescription("LightCycle", "https://github.com/soundcloud/lightcycle");
     }
 

@@ -10,6 +10,8 @@ import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -24,84 +26,84 @@ public class ShazamSupportFragmentLightCycleDispatcher<T extends Fragment>
     }
 
     @Override
-    public void onConfigurationChanged(T fragment, Configuration newConfig) {
+    public void onConfigurationChanged(@NotNull T fragment, @NotNull Configuration newConfig) {
         for (ShazamSupportFragmentLightCycle<T> component : fragmentLightCycles) {
             component.onConfigurationChanged(fragment, newConfig);
         }
     }
 
     @Override
-    public void onActivityResult(T fragment, int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(@NotNull T fragment, int requestCode, int resultCode, @Nullable Intent data) {
         for (ShazamSupportFragmentLightCycle<T> component : fragmentLightCycles) {
             component.onActivityResult(fragment, requestCode, resultCode, data);
         }
     }
 
     @Override
-    public void onSelected(T fragment) {
+    public void onSelected(@NotNull T fragment) {
         for (ShazamSupportFragmentLightCycle<T> component : fragmentLightCycles) {
             component.onSelected(fragment);
         }
     }
 
     @Override
-    public void onUnselected(T fragment) {
+    public void onUnselected(@NotNull T fragment) {
         for (ShazamSupportFragmentLightCycle<T> component : fragmentLightCycles) {
             component.onUnselected(fragment);
         }
     }
 
     @Override
-    public void onWindowFocusChanged(T fragment, boolean hasFocus) {
+    public void onWindowFocusChanged(@NotNull T fragment, boolean hasFocus) {
         for (ShazamSupportFragmentLightCycle<T> component : fragmentLightCycles) {
             component.onWindowFocusChanged(fragment, hasFocus);
         }
     }
 
     @Override
-    public void onAttach(T fragment, Activity activity) {
+    public void onAttach(@NotNull T fragment, @NotNull Activity activity) {
         for (ShazamSupportFragmentLightCycle<T> component : fragmentLightCycles) {
             component.onAttach(fragment, activity);
         }
     }
 
     @Override
-    public void onCreate(T fragment, @Nullable Bundle bundle) {
+    public void onCreate(@NotNull T fragment, @Nullable Bundle bundle) {
         for (ShazamSupportFragmentLightCycle<T> component : fragmentLightCycles) {
             component.onCreate(fragment, bundle);
         }
     }
 
     @Override
-    public void onViewCreated(T fragment, View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NotNull T fragment, @NotNull View view, @Nullable Bundle savedInstanceState) {
         for (ShazamSupportFragmentLightCycle<T> component : fragmentLightCycles) {
             component.onViewCreated(fragment, view, savedInstanceState);
         }
     }
 
     @Override
-    public void onActivityCreated(T fragment, Bundle bundle) {
+    public void onActivityCreated(@NotNull T fragment, @Nullable Bundle bundle) {
         for (ShazamSupportFragmentLightCycle<T> component : fragmentLightCycles) {
             component.onActivityCreated(fragment, bundle);
         }
     }
 
     @Override
-    public void onStart(T fragment) {
+    public void onStart(@NotNull T fragment) {
         for (ShazamSupportFragmentLightCycle<T> component : fragmentLightCycles) {
             component.onStart(fragment);
         }
     }
 
     @Override
-    public void onResume(T fragment) {
+    public void onResume(@NotNull T fragment) {
         for (ShazamSupportFragmentLightCycle<T> component : fragmentLightCycles) {
             component.onResume(fragment);
         }
     }
 
     @Override
-    public boolean onOptionsItemSelected(T fragment, MenuItem item) {
+    public boolean onOptionsItemSelected(@NotNull T fragment, @NotNull MenuItem item) {
         for (ShazamSupportFragmentLightCycle<T> component : fragmentLightCycles) {
             if (component.onOptionsItemSelected(fragment, item)) {
                 return true;
@@ -111,42 +113,42 @@ public class ShazamSupportFragmentLightCycleDispatcher<T extends Fragment>
     }
 
     @Override
-    public void onPause(T fragment) {
+    public void onPause(@NotNull T fragment) {
         for (ShazamSupportFragmentLightCycle<T> component : fragmentLightCycles) {
             component.onPause(fragment);
         }
     }
 
     @Override
-    public void onStop(T fragment) {
+    public void onStop(@NotNull T fragment) {
         for (ShazamSupportFragmentLightCycle<T> component : fragmentLightCycles) {
             component.onStop(fragment);
         }
     }
 
     @Override
-    public void onSaveInstanceState(T fragment, Bundle bundle) {
+    public void onSaveInstanceState(@NotNull T fragment, @NotNull Bundle bundle) {
         for (ShazamSupportFragmentLightCycle<T> component : fragmentLightCycles) {
             component.onSaveInstanceState(fragment, bundle);
         }
     }
 
     @Override
-    public void onDestroyView(T fragment) {
+    public void onDestroyView(@NotNull T fragment) {
         for (ShazamSupportFragmentLightCycle<T> component : fragmentLightCycles) {
             component.onDestroyView(fragment);
         }
     }
 
     @Override
-    public void onDestroy(T fragment) {
+    public void onDestroy(@NotNull T fragment) {
         for (ShazamSupportFragmentLightCycle<T> component : fragmentLightCycles) {
             component.onDestroy(fragment);
         }
     }
 
     @Override
-    public void onDetach(T fragment) {
+    public void onDetach(@NotNull T fragment) {
         for (ShazamSupportFragmentLightCycle<T> component : fragmentLightCycles) {
             component.onDetach(fragment);
         }

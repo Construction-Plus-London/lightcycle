@@ -11,6 +11,9 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 import java.lang.reflect.Method;
 
 public final class LightCycles {
@@ -88,82 +91,82 @@ public final class LightCycles {
         }
 
         @Override
-        public void onCreate(Target activity, Bundle bundle) {
+        public void onCreate(@NotNull Target activity, @Nullable Bundle bundle) {
             lightCycle.onCreate(activity, bundle);
         }
 
         @Override
-        public void onPostCreate(Target activity, Bundle bundle) {
+        public void onPostCreate(@NotNull Target activity, @Nullable Bundle bundle) {
             lightCycle.onPostCreate(activity, bundle);
         }
 
         @Override
-        public void onNewIntent(Target activity, Intent intent) {
+        public void onNewIntent(@NotNull Target activity, Intent intent) {
             lightCycle.onNewIntent(activity, intent);
         }
 
         @Override
-        public void onStart(Target activity) {
+        public void onStart(@NotNull Target activity) {
             lightCycle.onStart(activity);
         }
 
         @Override
-        public void onResume(Target activity) {
+        public void onResume(@NotNull Target activity) {
             lightCycle.onResume(activity);
         }
 
         @Override
-        public boolean onOptionsItemSelected(Target activity, MenuItem item) {
+        public boolean onOptionsItemSelected(@NotNull Target activity, @NotNull MenuItem item) {
             return lightCycle.onOptionsItemSelected(activity, item);
         }
 
         @Override
-        public void onPause(Target activity) {
+        public void onPause(@NotNull Target activity) {
             lightCycle.onPause(activity);
         }
 
         @Override
-        public void onStop(Target activity) {
+        public void onStop(@NotNull Target activity) {
             lightCycle.onStop(activity);
         }
 
         @Override
-        public void onSaveInstanceState(Target activity, Bundle bundle) {
+        public void onSaveInstanceState(@NotNull Target activity, @NotNull Bundle bundle) {
             lightCycle.onSaveInstanceState(activity, bundle);
         }
 
         @Override
-        public void onRestoreInstanceState(Target activity, Bundle bundle) {
+        public void onRestoreInstanceState(@NotNull Target activity, @NotNull Bundle bundle) {
             lightCycle.onRestoreInstanceState(activity, bundle);
         }
 
         @Override
-        public void onWindowFocusChanged(Target activity, boolean hasFocus) {
+        public void onWindowFocusChanged(@NotNull Target activity, boolean hasFocus) {
             lightCycle.onWindowFocusChanged(activity, hasFocus);
         }
 
         @Override
-        public void onActivityResult(Target activity, int requestCode, int resultCode, Intent data) {
+        public void onActivityResult(@NotNull Target activity, int requestCode, int resultCode, @Nullable Intent data) {
             lightCycle.onActivityResult(activity, requestCode, resultCode, data);
         }
 
         @Override
-        public void onConfigurationChanged(Target activity, Configuration newConfig) {
+        public void onConfigurationChanged(@NotNull Target activity, @NotNull Configuration newConfig) {
             lightCycle.onConfigurationChanged(activity, newConfig);
         }
 
         @Override
-        public void onMultiWindowModeChanged(Target host, boolean isInMultiWindowMode) {
+        public void onMultiWindowModeChanged(@NotNull Target host, boolean isInMultiWindowMode) {
             lightCycle.onMultiWindowModeChanged(host, isInMultiWindowMode);
         }
 
         @Override
-        public void onDestroy(Target activity) {
+        public void onDestroy(@NotNull Target activity) {
             lightCycle.onDestroy(activity);
         }
 
         @Override
-        public void onBackPressed(Target activity) {
+        public void onBackPressed(@NotNull Target activity) {
             lightCycle.onBackPressed(activity);
         }
 
@@ -196,72 +199,72 @@ public final class LightCycles {
         }
 
         @Override
-        public void onAttach(Target fragment, Activity activity) {
+        public void onAttach(@NotNull Target fragment, @NotNull Activity activity) {
             lightCycle.onAttach(fragment, activity);
         }
 
         @Override
-        public void onAttach(Target fragment, Context context) {
+        public void onAttach(@NotNull Target fragment, @NotNull Context context) {
             lightCycle.onAttach(fragment, context);
         }
 
         @Override
-        public void onCreate(Target fragment, Bundle bundle) {
+        public void onCreate(@NotNull Target fragment, @Nullable Bundle bundle) {
             lightCycle.onCreate(fragment, bundle);
         }
 
         @Override
-        public void onViewCreated(Target fragment, View view, Bundle savedInstanceState) {
+        public void onViewCreated(@NotNull Target fragment, @NotNull View view, @Nullable Bundle savedInstanceState) {
             lightCycle.onViewCreated(fragment, view, savedInstanceState);
         }
 
         @Override
-        public void onActivityCreated(Target fragment, Bundle bundle) {
+        public void onActivityCreated(@NotNull Target fragment, @Nullable Bundle bundle) {
             lightCycle.onActivityCreated(fragment, bundle);
         }
 
         @Override
-        public void onStart(Target fragment) {
+        public void onStart(@NotNull Target fragment) {
             lightCycle.onStart(fragment);
         }
 
         @Override
-        public void onResume(Target fragment) {
+        public void onResume(@NotNull Target fragment) {
             lightCycle.onResume(fragment);
         }
 
         @Override
-        public boolean onOptionsItemSelected(Target fragment, MenuItem item) {
+        public boolean onOptionsItemSelected(@NotNull Target fragment, @NotNull MenuItem item) {
             return lightCycle.onOptionsItemSelected(fragment, item);
         }
 
         @Override
-        public void onPause(Target fragment) {
+        public void onPause(@NotNull Target fragment) {
             lightCycle.onPause(fragment);
         }
 
         @Override
-        public void onStop(Target fragment) {
+        public void onStop(@NotNull Target fragment) {
             lightCycle.onStop(fragment);
         }
 
         @Override
-        public void onSaveInstanceState(Target fragment, Bundle bundle) {
+        public void onSaveInstanceState(@NotNull Target fragment, @NotNull Bundle bundle) {
             lightCycle.onSaveInstanceState(fragment, bundle);
         }
 
         @Override
-        public void onDestroyView(Target fragment) {
+        public void onDestroyView(@NotNull Target fragment) {
             lightCycle.onDestroyView(fragment);
         }
 
         @Override
-        public void onDestroy(Target fragment) {
+        public void onDestroy(@NotNull Target fragment) {
             lightCycle.onDestroy(fragment);
         }
 
         @Override
-        public void onDetach(Target fragment) {
+        public void onDetach(@NotNull Target fragment) {
             lightCycle.onDetach(fragment);
         }
 
@@ -295,67 +298,67 @@ public final class LightCycles {
         }
 
         @Override
-        public void onAttach(Target fragment, Activity activity) {
+        public void onAttach(@NotNull Target fragment, @NotNull Activity activity) {
             lightCycle.onAttach(fragment, activity);
         }
 
         @Override
-        public void onCreate(Target fragment, Bundle bundle) {
+        public void onCreate(@NotNull Target fragment, @Nullable Bundle bundle) {
             lightCycle.onCreate(fragment, bundle);
         }
 
         @Override
-        public void onViewCreated(Target fragment, View view, Bundle savedInstanceState) {
+        public void onViewCreated(@NotNull Target fragment, @NotNull View view, @Nullable Bundle savedInstanceState) {
             lightCycle.onViewCreated(fragment, view, savedInstanceState);
         }
 
         @Override
-        public void onActivityCreated(Target fragment, Bundle bundle) {
+        public void onActivityCreated(@NotNull Target fragment, @Nullable Bundle bundle) {
             lightCycle.onActivityCreated(fragment, bundle);
         }
 
         @Override
-        public void onStart(Target fragment) {
+        public void onStart(@NotNull Target fragment) {
             lightCycle.onStart(fragment);
         }
 
         @Override
-        public void onResume(Target fragment) {
+        public void onResume(@NotNull Target fragment) {
             lightCycle.onResume(fragment);
         }
 
         @Override
-        public boolean onOptionsItemSelected(Target fragment, MenuItem item) {
+        public boolean onOptionsItemSelected(@NotNull Target fragment, @NotNull MenuItem item) {
             return lightCycle.onOptionsItemSelected(fragment, item);
         }
 
         @Override
-        public void onPause(Target fragment) {
+        public void onPause(@NotNull Target fragment) {
             lightCycle.onPause(fragment);
         }
 
         @Override
-        public void onStop(Target fragment) {
+        public void onStop(@NotNull Target fragment) {
             lightCycle.onStop(fragment);
         }
 
         @Override
-        public void onSaveInstanceState(Target fragment, Bundle bundle) {
+        public void onSaveInstanceState(@NotNull Target fragment, @NotNull Bundle bundle) {
             lightCycle.onSaveInstanceState(fragment, bundle);
         }
 
         @Override
-        public void onDestroyView(Target fragment) {
+        public void onDestroyView(@NotNull Target fragment) {
             lightCycle.onDestroyView(fragment);
         }
 
         @Override
-        public void onDestroy(Target fragment) {
+        public void onDestroy(@NotNull Target fragment) {
             lightCycle.onDestroy(fragment);
         }
 
         @Override
-        public void onDetach(Target fragment) {
+        public void onDetach(@NotNull Target fragment) {
             lightCycle.onDetach(fragment);
         }
 
@@ -384,92 +387,92 @@ public final class LightCycles {
         return new ShazamSupportFragmentLightCycle<Target>() {
 
             @Override
-            public void onConfigurationChanged(Target fragment, Configuration newConfig) {
+            public void onConfigurationChanged(@NotNull Target fragment, @NotNull Configuration newConfig) {
                 lightCycle.onConfigurationChanged(fragment, newConfig);
             }
 
             @Override
-            public void onActivityResult(Target fragment, int requestCode, int resultCode, Intent data) {
+            public void onActivityResult(@NotNull Target fragment, int requestCode, int resultCode, @Nullable Intent data) {
                 lightCycle.onActivityResult(fragment, requestCode, resultCode, data);
             }
 
             @Override
-            public void onSelected(Target fragment) {
+            public void onSelected(@NotNull Target fragment) {
                 lightCycle.onSelected(fragment);
             }
 
             @Override
-            public void onUnselected(Target fragment) {
+            public void onUnselected(@NotNull Target fragment) {
                 lightCycle.onUnselected(fragment);
             }
 
             @Override
-            public void onWindowFocusChanged(Target fragment, boolean hasFocus) {
+            public void onWindowFocusChanged(@NotNull Target fragment, boolean hasFocus) {
                 lightCycle.onWindowFocusChanged(fragment, hasFocus);
             }
 
             @Override
-            public void onAttach(Target fragment, Activity activity) {
+            public void onAttach(@NotNull Target fragment, @NotNull Activity activity) {
                 lightCycle.onAttach(fragment, activity);
             }
 
             @Override
-            public void onCreate(Target fragment, Bundle bundle) {
+            public void onCreate(@NotNull Target fragment, @Nullable Bundle bundle) {
                 lightCycle.onCreate(fragment, bundle);
             }
 
             @Override
-            public void onViewCreated(Target fragment, View view, Bundle savedInstanceState) {
+            public void onViewCreated(@NotNull Target fragment, @NotNull View view, @Nullable Bundle savedInstanceState) {
                 lightCycle.onViewCreated(fragment, view, savedInstanceState);
             }
 
             @Override
-            public void onActivityCreated(Target fragment, Bundle bundle) {
+            public void onActivityCreated(@NotNull Target fragment, @Nullable Bundle bundle) {
                 lightCycle.onActivityCreated(fragment, bundle);
             }
 
             @Override
-            public void onStart(Target fragment) {
+            public void onStart(@NotNull Target fragment) {
                 lightCycle.onStart(fragment);
             }
 
             @Override
-            public void onResume(Target fragment) {
+            public void onResume(@NotNull Target fragment) {
                 lightCycle.onResume(fragment);
             }
 
             @Override
-            public boolean onOptionsItemSelected(Target fragment, MenuItem item) {
+            public boolean onOptionsItemSelected(@NotNull Target fragment, @NotNull MenuItem item) {
                 return lightCycle.onOptionsItemSelected(fragment, item);
             }
 
             @Override
-            public void onPause(Target fragment) {
+            public void onPause(@NotNull Target fragment) {
                 lightCycle.onPause(fragment);
             }
 
             @Override
-            public void onStop(Target fragment) {
+            public void onStop(@NotNull Target fragment) {
                 lightCycle.onStop(fragment);
             }
 
             @Override
-            public void onSaveInstanceState(Target fragment, Bundle bundle) {
+            public void onSaveInstanceState(@NotNull Target fragment, @NotNull Bundle bundle) {
                 lightCycle.onSaveInstanceState(fragment, bundle);
             }
 
             @Override
-            public void onDestroyView(Target fragment) {
+            public void onDestroyView(@NotNull Target fragment) {
                 lightCycle.onDestroyView(fragment);
             }
 
             @Override
-            public void onDestroy(Target fragment) {
+            public void onDestroy(@NotNull Target fragment) {
                 lightCycle.onDestroy(fragment);
             }
 
             @Override
-            public void onDetach(Target fragment) {
+            public void onDetach(@NotNull Target fragment) {
                 lightCycle.onDetach(fragment);
             }
         };

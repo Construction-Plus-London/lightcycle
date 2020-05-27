@@ -6,64 +6,67 @@ import android.view.MenuItem;
 
 import com.soundcloud.lightcycle.integration_test.callback.ActivityLifecycleCallback;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 public class ActivityLogger extends BaseActivityLogger<SampleActivity> {
 
     @Override
-    public void onCreate(SampleActivity activity, Bundle bundle) {
+    public void onCreate(@NotNull SampleActivity activity, @Nullable Bundle bundle) {
         super.onCreate(activity, bundle);
         lifecycleCallbackCallState.put(ActivityLifecycleCallback.onCreate, true);
     }
 
     @Override
-    public void onStart(SampleActivity activity) {
+    public void onStart(@NotNull SampleActivity activity) {
         super.onStart(activity);
         lifecycleCallbackCallState.put(ActivityLifecycleCallback.onStart, true);
     }
 
     @Override
-    public void onRestoreInstanceState(SampleActivity activity, Bundle bundle) {
+    public void onRestoreInstanceState(@NotNull SampleActivity activity, @NotNull Bundle bundle) {
         super.onRestoreInstanceState(activity, bundle);
         lifecycleCallbackCallState.put(ActivityLifecycleCallback.onRestoreInstanceState, true);
     }
 
     @Override
-    public void onResume(SampleActivity activity) {
+    public void onResume(@NotNull SampleActivity activity) {
         super.onResume(activity);
         lifecycleCallbackCallState.put(ActivityLifecycleCallback.onResume, true);
     }
 
     @Override
-    public void onPause(SampleActivity activity) {
+    public void onPause(@NotNull SampleActivity activity) {
         super.onPause(activity);
         lifecycleCallbackCallState.put(ActivityLifecycleCallback.onPause, true);
     }
 
     @Override
-    public void onSaveInstanceState(SampleActivity activity, Bundle bundle) {
+    public void onSaveInstanceState(@NotNull SampleActivity activity, @NotNull Bundle bundle) {
         super.onSaveInstanceState(activity, bundle);
         lifecycleCallbackCallState.put(ActivityLifecycleCallback.onSaveInstanceState, true);
     }
 
     @Override
-    public void onStop(SampleActivity activity) {
+    public void onStop(@NotNull SampleActivity activity) {
         super.onStop(activity);
         lifecycleCallbackCallState.put(ActivityLifecycleCallback.onStop, true);
     }
 
     @Override
-    public void onDestroy(SampleActivity activity) {
+    public void onDestroy(@NotNull SampleActivity activity) {
         super.onDestroy(activity);
         lifecycleCallbackCallState.put(ActivityLifecycleCallback.onDestroy, true);
     }
 
     @Override
-    public void onNewIntent(SampleActivity activity, Intent intent) {
+    public void onNewIntent(@NotNull SampleActivity activity, Intent intent) {
         super.onNewIntent(activity, intent);
         lifecycleCallbackCallState.put(ActivityLifecycleCallback.onNewIntent, true);
     }
 
     @Override
-    public boolean onOptionsItemSelected(SampleActivity activity, MenuItem item) {
+    public boolean onOptionsItemSelected(@NotNull SampleActivity activity, @NotNull MenuItem item) {
         lifecycleCallbackCallState.put(ActivityLifecycleCallback.onOptionsItemSelected, true);
         return super.onOptionsItemSelected(activity, item);
     }

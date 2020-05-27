@@ -7,8 +7,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-public abstract class LightCycleActivity<HostType>
-        extends Activity
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+public abstract class LightCycleActivity<HostType> extends Activity
         implements LightCycleDispatcher<ActivityLightCycle<HostType>> {
 
     private final ActivityLightCycleDispatcher<HostType> lightCycleDispatcher;
@@ -24,7 +26,7 @@ public abstract class LightCycleActivity<HostType>
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setActivityContentView();
         LightCycles.bind(this);
@@ -46,7 +48,7 @@ public abstract class LightCycleActivity<HostType>
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         return lightCycleDispatcher.onOptionsItemSelected(host(), item);
     }
 
@@ -69,13 +71,13 @@ public abstract class LightCycleActivity<HostType>
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         lightCycleDispatcher.onSaveInstanceState(host(), outState);
     }
 
     @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         lightCycleDispatcher.onRestoreInstanceState(host(), savedInstanceState);
     }

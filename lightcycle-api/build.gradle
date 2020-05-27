@@ -10,6 +10,8 @@ checkstyle {
 dependencies {
   compileOnly deps.android
 
+  api deps.jetbrainsAnnotations
+
   testImplementation deps.android
   testImplementation deps.junit
   testImplementation deps.equalsverifier
